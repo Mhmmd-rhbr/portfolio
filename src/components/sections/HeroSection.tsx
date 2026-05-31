@@ -3,16 +3,39 @@ import { FadeIn } from '../ui/FadeIn';
 import { ContactButton } from '../ui/ContactButton';
 import { Magnet } from '../ui/Magnet';
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onContactClick?: () => void;
+  onEcosystemClick?: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onEcosystemClick }) => {
   return (
     <section className="h-screen flex flex-col overflow-x-clip relative w-full">
       {/* Navbar */}
       <FadeIn delay={0} y={-20} className="w-full">
         <nav className="flex justify-between items-center w-full px-6 md:px-10 pt-6 md:pt-8 text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem]">
           <a href="#about" className="hover:opacity-70 transition-opacity duration-200">About</a>
-          <a href="#price" className="hover:opacity-70 transition-opacity duration-200">Price</a>
+          <a 
+            href="#ecosystem" 
+            onClick={(e) => {
+              e.preventDefault();
+              onEcosystemClick?.();
+            }}
+            className="hover:opacity-70 transition-opacity duration-200"
+          >
+            Ecosystem
+          </a>
           <a href="#projects" className="hover:opacity-70 transition-opacity duration-200">Projects</a>
-          <a href="#contact" className="hover:opacity-70 transition-opacity duration-200">Contact</a>
+          <a 
+            href="#contact" 
+            onClick={(e) => {
+              e.preventDefault();
+              onContactClick?.();
+            }}
+            className="hover:opacity-70 transition-opacity duration-200"
+          >
+            Contact
+          </a>
         </nav>
       </FadeIn>
 
@@ -51,7 +74,7 @@ export const HeroSection: React.FC = () => {
         </FadeIn>
 
         <FadeIn delay={0.5} y={20}>
-          <ContactButton />
+          <ContactButton onClick={onContactClick} />
         </FadeIn>
       </div>
     </section>

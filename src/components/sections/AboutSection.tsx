@@ -3,7 +3,11 @@ import { FadeIn } from '../ui/FadeIn';
 import { AnimatedText } from '../ui/AnimatedText';
 import { ContactButton } from '../ui/ContactButton';
 
-export const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+  onContactClick?: () => void;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) => {
   return (
     <section id="about" className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 overflow-hidden">
       
@@ -46,7 +50,7 @@ export const AboutSection: React.FC = () => {
         </div>
 
         <FadeIn delay={0.5} y={30} className="mt-16 sm:mt-20 md:mt-24">
-          <ContactButton />
+          <ContactButton onClick={onContactClick} />
         </FadeIn>
       </div>
 
