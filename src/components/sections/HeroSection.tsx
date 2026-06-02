@@ -61,7 +61,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onEcos
         <Magnet>
           <img
             src="https://res.cloudinary.com/dk4jmsecq/image/upload/v1780181606/mamad%DB%B2-Photoroom_zpq9ky.png"
-            alt="Jack Portrait"
+            alt="Mohammad Portrait"
             className="w-full h-auto object-contain scale-[1.15]"
           />
         </Magnet>
